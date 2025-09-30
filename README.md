@@ -1,3 +1,5 @@
+# cursor - Agent
+
 # 1.MySql [mssql-mcp-server](https://smithery.ai/server/@knight0zh/mssql-mcp-server)
 > https://github.com/knight0zh/mssql-mcp-server
 - 配置
@@ -43,3 +45,14 @@ https://mcp.so/zh/server/amap-maps/amap?tab=content
  2、从高德地图的MCP中获取颐和园、南锣鼓巷附件的美食信息，每处获取三家美食店铺信息，并将相应的信息存入表location_foods中
  3、在工作目录 F:\AI\mcp\mcp-study(就是当前工作目录)下创建一个新的文件夹，命名为"北京旅行”在其中创建两个txt，分别从数据库中将两个表的内容提取出存放进去。
  4、最后根据txt中的内容，生成一个精美的html前端展示页面，并存放在该目录下
+
+
+
+ # vscode - Cline
+ > https://app.cline.bot/dashboard
+ > mhf.workmail@gmail.com
+
+
+> DeepSeek API keys
+- MCP
+- sk-c5e9a3c86974492f90c77c363beb30b7
