@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "mssql-mcp-server": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@knight0zh/mssql-mcp-server",
+        "--key",
+        "bd2d3d15-14de-4bf8-8676-744052b83983",
+        "--profile",
+        "surrounding-rat-5cWPEP"
+      ]
+    }
+  }
+}

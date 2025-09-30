@@ -1,0 +1,17 @@
+{
+  "name": "mcp-study",
+  "version": "1.0.0",
+  "description": "mcp学习文件夹",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "20.19.5"
+  },
+  "devDependencies": {
+    "@baidumap/mcp-server-baidu-map": "^1.0.5"
+  }
+}
