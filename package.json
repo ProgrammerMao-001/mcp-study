@@ -4,7 +4,8 @@
   "description": "mcp学习文件夹",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "trip": "node scripts/beijing_trip.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,9 @@
   },
   "devDependencies": {
     "@baidumap/mcp-server-baidu-map": "^1.0.5"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "sql.js": "^1.13.0"
   }
 }

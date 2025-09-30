@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>北京一日游攻略</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #d33a2c;
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --text: #1f2937;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Noto Sans SC', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      padding: 32px 16px;
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 32px;
+    }
+
+    p.lead {
+      margin: 0;
+      opacity: .8
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    @media(min-width: 800px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #eee;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      color: #555;
+      font-weight: 600;
+      background: #fafafa
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      padding: 24px 0 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>北京一日游攻略</h1>
+      <p class="lead">地铁线路与美食推荐，一页搞定</p>
+    </div>
+  </header>
+  <main class="container">
+    <div class="grid">
+      <section class="card">
+        <h2>地铁出行 <span class="badge">subway_trips.txt</span></h2>
+        <div id="subway"></div>
+      </section>
+      <section class="card">
+        <h2>附近美食 <span class="badge">location_foods.txt</span></h2>
+        <div id="foods"></div>
+      </section>
+    </div>
+  </main>
+  <footer>由高德数据生成 · 本地静态展示</footer>
+  <script>
+    async function loadTxt(name) {
+      const res = await fetch(name);
+      const text = await res.text();
+      const lines = text.split('\n').filter(Boolean);
+      const header = lines.shift();
+      const cols = (lines.shift() || '').split('	');
+      const rows = lines.map(l => l.split('	'));
+      return { header, cols, rows };
+    }
+    function toTable(m) {
+      const thead = '<thead><tr>' + m.cols.map(function (c) { return '<th>' + c + '</th>'; }).join('') + '</tr></thead>';
+      const tbody = '<tbody>' + m.rows.map(function (r) { return '<tr>' + r.map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; }).join('') + '</tbody>';
+      return '<table>' + thead + tbody + '</table>';
+    }
+    (async () => {
+      const s = await loadTxt('subway_trips.txt');
+      const f = await loadTxt('location_foods.txt');
+      document.getElementById('subway').innerHTML = toTable(s);
+      document.getElementById('foods').innerHTML = toTable(f);
+    })();
+  </script>
+</body>
+
+</html>

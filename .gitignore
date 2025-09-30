@@ -1,0 +1,11 @@
+/node_modules/
+/dist/
+/build/
+/public/
+/static/
+/templates/
+/uploads/
+/logs/
+/cache/
+/temp/
+/backup/
